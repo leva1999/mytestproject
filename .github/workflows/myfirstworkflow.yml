@@ -24,6 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # Clone my repo to conteyner
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
@@ -44,16 +45,27 @@ jobs:
   jobname2:
     runs-on: ubuntu-latest
     needs: [jobname1]
+    env:
+      VAR1: "Deploy var1"
+      VAR2: "Deploy var2"
     
     steps:
     - name: Run second step from jobname2
       run: echo My second step from jobname2 
+    - name: Print vars
+      run: |
+        echo var1 is: ${{ env.VAR1 }}
+        echo var2 is: ${{ env.VAR2 }}
+        echo var3 is $Local_var
+      env:
+        Local_var: "Super local variable"
+     
       
     - name: Print Deploement package
       run : echo My Deploy package is ${{ env.PACKAGE_NAME }}
     - name: Cheak some service at the server
       run: |
         aws --version
-        zip
+        zip --version
     
     
