@@ -33,7 +33,7 @@ jobs:
       
     - name: A few more commands
       run: |
-        echo "Hello Lev"
+        echo "Hello Lev1"
         echo "Application name: ${{ env.MY_APPLICATION}}"
         ls -al
 
