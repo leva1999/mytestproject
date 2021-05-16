@@ -2,7 +2,7 @@
 
 name: my_GitHUB_new
 env:
-  MY_APPLICATION: "My flask"
+  MY_APPLICATION: "My flask_1"
   PACKAGE_NAME  : "Lion_deploy-${{ github.sha }}"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
